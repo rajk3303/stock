@@ -103,14 +103,14 @@ class Products extends Admin_Controller
 	
         if ($this->form_validation->run() == TRUE) {
             // true case
-        	$upload_image = $this->upload_image();
+        	// $upload_image = $this->upload_image();
 
         	$data = array(
         		'name' => $this->input->post('product_name'),
         		'sku' => $this->input->post('sku'),
         		'price' => $this->input->post('price'),
         		'qty' => $this->input->post('qty'),
-        		'image' => $upload_image,
+        		// 'image' => $upload_image,
         		'description' => $this->input->post('description'),
         		'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
         		'brand_id' => json_encode($this->input->post('brands')),
