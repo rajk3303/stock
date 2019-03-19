@@ -52,7 +52,7 @@ class Reg extends Admin_Controller
         		'gender' => $this->input->post('gender') 
         	);
 
-        	$create = $this->Model_reg->create($data);
+        	$create = $this->model_reg->create($data);
         	if($create == true) {
         		$this->session->set_flashdata('success', 'Successfully created');
 				redirect('auth/login', 'refresh');
