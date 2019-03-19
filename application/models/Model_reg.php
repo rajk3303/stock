@@ -53,14 +53,14 @@ class Model_reg extends CI_Model
 	public function create($data = '')
 	{
 
-		if($data && "SELECT id from groups WHERE group_name= 'Users' " ) {
+		if($data) {
 			$create = $this->db->insert('users', $data);
 
 			$user_id = $this->db->insert_id();
 
 			$group_data = array(
 				'user_id' => $user_id,
-				'group_id' => $group_id
+				'group_id' => "SELECT id from groups WHERE group_name= 'Users' "
 			);
 
 			$group_data = $this->db->insert('user_group', $group_data);
