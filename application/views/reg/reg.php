@@ -18,10 +18,6 @@
   <!-- iCheck -->
   <link rel="stylesheet" href='assets/plugins/iCheck/square/blue.css'>
 
-  <link rel="stylesheet" href='assets/reg.css'>
-
-  s
-
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -44,36 +40,36 @@
     <form action='<?php echo base_url('reg/create') ?>' method="post">
 
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Username">
+        <input type="text" class="form-control" id="username" placeholder="Username">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="First Name">
+        <input type="text" class="form-control" id="firstname" placeholder="First Name">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Last name">
+        <input type="text" class="form-control" id="lastname" placeholder="Last name">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" class="form-control" id="email" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Phone No. ">
+        <input type="text" class="form-control" id="phone" placeholder="Phone No. ">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
-      <label for="gender">Gender</label>
+      <label for="gender" id="gender">Gender</label>
          <div class="radio">
             <label>
               <input type="radio" name="gender" id="male" value="1">
-                   Male
+                  Male
                   </label>
                   <label>
                   <input type="radio" name="gender" id="female" value="2">
@@ -83,7 +79,7 @@
 
 
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" id="password" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
