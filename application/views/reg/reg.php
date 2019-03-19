@@ -18,6 +18,10 @@
   <!-- iCheck -->
   <link rel="stylesheet" href='assets/plugins/iCheck/square/blue.css'>
 
+  <link rel="stylesheet" href='assets/reg.css'>
+
+  s
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -37,7 +41,7 @@
   <div class="register-box-body">
     <p class="login-box-msg">Register a new user</p>
 
-    <form action='http://localhost/stock/auth/login' method="post">
+    <form action='<?php echo base_url('reg/create') ?>' method="post">
 
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Username">
