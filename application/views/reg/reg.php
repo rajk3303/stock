@@ -37,30 +37,30 @@
   <div class="register-box-body">
     <p class="login-box-msg">Register a new user</p>
 
-    <form action='<?php echo base_url('reg/create') ?>' method="post">
+    <form action="<?php echo base_url('reg/create') ?>" method="post">
 
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" id="username" placeholder="Username">
+        <input type="text" class="form-control" name="username" id="username" placeholder="Username">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" id="firstname" placeholder="First Name">
+        <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" id="lastname" placeholder="Last name">
+        <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last name">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" id="email" placeholder="Email">
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" id="phone" placeholder="Phone No. ">
+        <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone No. ">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
 
@@ -68,22 +68,22 @@
       <label for="gender" id="gender">Gender</label>
          <div class="radio">
             <label>
-              <input type="radio" name="gender" id="male" value="1">
+              <input type="radio" name="gender" name="male" id="male" value="1">
                   Male
                   </label>
                   <label>
-                  <input type="radio" name="gender" id="female" value="2">
+                  <input type="radio" name="gender" name="female" id="female" value="2">
                   Female
                   </label>
             </div>
 
 
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" id="password" placeholder="Password">
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Retype password">
+        <input type="password" class="form-control" name="cpassword" placeholder="Retype password">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class="row">
