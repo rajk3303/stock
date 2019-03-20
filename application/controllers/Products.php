@@ -60,12 +60,31 @@ class Products extends Admin_Controller
             $availability = ($value['availability'] == 1) ? '<span class="label label-success">Active</span>' : '<span class="label label-warning">Inactive</span>';
 
             $qty_status = '';
-            if($value['qty'] <= 10) {
+            /* if($value['qty'] <= 20) {
                 $qty_status = '<span class="label label-warning">Low !</span>';
             } else if($value['qty'] <= 0) {
                 $qty_status = '<span class="label label-danger">Out of stock !</span>';
             }
+            else if ($value['qty'] < 0) {
+                $qty_status = '<span class="label label-danger">INVALID!!!</span>';
+            }
+            else if ($value['qty'] < 10) {
+                $qty_status = '<span class="label label-danger">Order More Now!!!</span>';
+            } */
 
+            if($value['qty'] > 0 && $value['qty'] <= 20) {
+                $qty_status = '<span class="label label-warning">Low !</span>';
+            }
+            if ($value['qty'] < 0) {
+                $qty_status = '<span class="label label-danger">INVALID!!!</span>';
+            }
+            if($value['qty'] == 0) {
+                $qty_status = '<span class="label label-danger">Out of stock !</span>';
+            }
+            if ($value['qty'] > 0 && $value['qty'] < 10) {
+                $qty_status = '<span class="label label-danger">Order More Now!!!</span>';
+            }
+            
 
 			$result['data'][$key] = array(
 				// $img,
@@ -119,7 +138,16 @@ class Products extends Admin_Controller
         		'availability' => $this->input->post('availability'),
         	);
 
-        	$create = $this->model_products->create($data);
+            if($data['qty'] < 0) {
+        		$this->session->set_flashdata('ERROR', 'ERROR ERROR');
+        		redirect('products/create', 'refresh');
+        	}else{
+                $create = $this->model_products->create($data);
+            }
+            
+            
+            
+
         	if($create == true) {
         		$this->session->set_flashdata('success', 'Successfully created');
         		redirect('products/', 'refresh');
@@ -231,7 +259,13 @@ class Products extends Admin_Controller
                 $this->model_products->update($upload_image, $product_id);
             } */
 
+            if($data['qty'] < 0) {
+        		$this->session->set_flashdata('ERROR', 'ERROR ERROR');
+        		redirect('products/', 'refresh');
+        	}else
             $update = $this->model_products->update($data, $product_id);
+            
+            
             if($update == true) {
                 $this->session->set_flashdata('success', 'Successfully updated');
                 redirect('products/', 'refresh');

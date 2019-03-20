@@ -36,7 +36,7 @@ class Model_orders extends CI_Model
 	public function create()
 	{
 		$user_id = $this->session->userdata('id');
-		$bill_no = 'BILPR-'.strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 4));
+		$bill_no = 'BILLNO-'.strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 4));
     	$data = array(
     		'bill_no' => $bill_no,
     		'customer_name' => $this->input->post('customer_name'),
@@ -58,7 +58,8 @@ class Model_orders extends CI_Model
 		$order_id = $this->db->insert_id();
 
 		$this->load->model('model_products');
-
+		$qty = $this->input->post('qty');
+		
 		$count_product = count($this->input->post('product'));
     	for($x = 0; $x < $count_product; $x++) {
     		$items = array(
@@ -68,17 +69,18 @@ class Model_orders extends CI_Model
     			'rate' => $this->input->post('rate_value')[$x],
     			'amount' => $this->input->post('amount_value')[$x],
     		);
-
+			
     		$this->db->insert('orders_item', $items);
 
     		// now decrease the stock from the product
     		$product_data = $this->model_products->getProductData($this->input->post('product')[$x]);
     		$qty = (int) $product_data['qty'] - (int) $this->input->post('qty')[$x];
 
-    		$update_product = array('qty' => $qty);
-
-
-    		$this->model_products->update($update_product, $this->input->post('product')[$x]);
+			$update_product = array('qty' => $qty);
+			
+    		
+			$this->model_products->update($update_product, $this->input->post('product')[$x]);
+			
     	}
 
 		return ($order_id) ? $order_id : false;
