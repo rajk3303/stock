@@ -46,8 +46,8 @@ class Reg extends Admin_Controller
         		'username' => $this->input->post('username'),
         		'password' => $password,
         		'email' => $this->input->post('email'),
-        		'firstname' => $this->input->post('fname'),
-        		'lastname' => $this->input->post('lname'),
+        		'firstname' => $this->input->post('firstname'),
+        		'lastname' => $this->input->post('lastname'),
         		'phone' => $this->input->post('phone'),
         		'gender' => $this->input->post('gender') 
         	);

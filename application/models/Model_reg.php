@@ -60,7 +60,8 @@ class Model_reg extends CI_Model
 
 			$group_data = array(
 				'user_id' => $user_id,
-				'group_id' => "SELECT id from groups WHERE group_name= 'Users' "
+				// 'group_id' => "SELECT id from groups WHERE group_name= 'Users' "
+				'group_id' => '2'
 			);
 
 			$group_data = $this->db->insert('user_group', $group_data);
