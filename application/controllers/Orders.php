@@ -106,7 +106,7 @@ class Orders extends Admin_Controller
 				if ($this->form_validation->run() == TRUE) 
 				{ 
 					
-					if($temp['qty'] < 0)
+					if($temp['qty'] > 0)
 					{
 						$order_id = $this->model_orders->create();
 						
@@ -182,7 +182,7 @@ class Orders extends Admin_Controller
 	
         if ($this->form_validation->run() == TRUE) {        	
 					
-					if($temp['qty'] < 0)
+					if($temp['qty'] > 0)
 					{
 							$update = $this->model_orders->update($id);
 							
