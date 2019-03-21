@@ -11,8 +11,8 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  
-  
+
+
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/font-awesome/css/font-awesome.min.css') ?>">
@@ -20,8 +20,8 @@
   <!-- <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/Ionicons/css/ionicons.min.css') ?>"> -->
   <!-- <link href='assets/bower_components/Ionicons/css/ionicons.min.css' rel="stylesheet"> -->
   <!-- <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet"> -->
-  
-  
+
+
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/AdminLTE.min.css') ?>">
   <!-- iCheck -->
@@ -36,9 +36,9 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  
-  <link rel="stylesheet" href="<?php echo base_url("fonts/Sniglet-Regular.ttf")?>">
-  
+
+  <link rel="stylesheet" href="<?php echo base_url("fonts/Sniglet-Regular.ttf") ?>">
+
   <!-- <link rel="stylesheet" href="<?php echo base_url("https://github.com/elartix/circular-std/blob/master/fonts/CircularStd-Medium.ttf") ?>"> -->
 
   <!-- 'Fira Sans','Maven Pro','Nunito','Oxygen','Quicksand','Work Sans', -->
@@ -48,6 +48,9 @@
 
   <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
 
+  <script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js') ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
 
 
@@ -61,20 +64,34 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <?php echo validation_errors(); ?>  
+    <?php echo validation_errors(); ?>
 
-    <?php if(!empty($errors)) {
-      echo $errors;
-    } ?>
+<script type="text/javascript">
+<?php if (!empty($errors)) {?>
+  toastr.error("<?php echo $errors; ?>");
+<?php }?>
+
+<?php if ($this->session->flashdata('success')) {?>
+    toastr.success("<?php echo $this->session->flashdata('success'); ?>");
+<?php } else if ($this->session->flashdata('error')) {?>
+    toastr.error("<?php echo $this->session->flashdata('error'); ?>");
+<?php } else if ($this->session->flashdata('warning')) {?>
+    toastr.warning("<?php echo $this->session->flashdata('warning'); ?>");
+<?php } else if ($this->session->flashdata('info')) {?>
+    toastr.info("<?php echo $this->session->flashdata('info'); ?>");
+<?php }?>
+
+
+</script>
 
     <form action="<?php echo base_url('auth/login') ?>" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" name="email" id="email" placeholder="Email" autocomplete="off">
+        <input type="email" class="form-control" name="email" value="<?php echo set_value('email'); ?>" placeholder="Email" autocomplete="off">
         <!-- <i class="icon ion-md-mail form-control-feedback" size="large"></i> -->
         <!-- <span class="icon ion-md-mail form-control-feedback"></span> -->
-        
+
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        
+
         <!-- <i class="icon ion-md-heart"></i>
         <ion-icon name="md-heart"></ion-icon> -->
 
@@ -83,7 +100,7 @@
         <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         <!-- <span class="icon ion-md-key form-control-feedback"></span> -->
-        
+
       </div>
       <div class="row">
         <div class="col-xs-8">
@@ -103,7 +120,7 @@
 
     <div class="row">
         <div class="col-xs-8">
-        New user? <a href="<?php echo base_url('Reg') ?>">Click here to Sign up</a>
+        New user? <a href="<?php echo base_url('reg/create') ?>">Click here to Sign up</a>
         </div>
       </div>
   </div>
@@ -113,7 +130,7 @@
 
 <!-- jQuery 3 -->
 
-<script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js') ?>"></script>
+
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
 <!-- iCheck -->
