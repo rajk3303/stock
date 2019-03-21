@@ -101,6 +101,11 @@
       </div>
     </form>
 
+    <div class="row">
+        <div class="col-xs-8">
+        New user? <a href="<?php echo base_url('Reg') ?>">Click here to Sign up</a>
+        </div>
+      </div>
   </div>
   <!-- /.login-box-body -->
 </div>
