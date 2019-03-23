@@ -94,7 +94,11 @@ class Orders extends Admin_Controller
         if (!in_array('createOrder', $this->permission)) {
             redirect('dashboard', 'refresh');
         }
-
+        $company = $this->model_company->getCompanyData(1);
+        $this->data['company_data'] = $company;
+        $this->data['is_vat_enabled'] = ($company['vat_charge_value'] > 0) ? true : false;
+        $this->data['is_service_enabled'] = ($company['service_charge_value'] > 0) ? true : false;
+        $this->data['products'] = $this->model_products->getActiveProductData();
         $this->data['page_title'] = 'Add Order';
 
         $this->form_validation->set_rules('product[]', 'Product name', 'trim|required');
@@ -106,14 +110,12 @@ class Orders extends Admin_Controller
             if ($order_id) {
                 $this->session->set_flashdata('success', 'Successfully created');
                 redirect('orders/update/' . $order_id, 'refresh');
+            } else {
+                $this->session->set_flashdata('error', 'Stock not available');
+                $this->render_template('orders/create', $this->data);
             }
         } else {
             // false case
-            $company = $this->model_company->getCompanyData(1);
-            $this->data['company_data'] = $company;
-            $this->data['is_vat_enabled'] = ($company['vat_charge_value'] > 0) ? true : false;
-            $this->data['is_service_enabled'] = ($company['service_charge_value'] > 0) ? true : false;
-            $this->data['products'] = $this->model_products->getActiveProductData();
             $this->render_template('orders/create', $this->data);
         }
     }
@@ -176,19 +178,17 @@ class Orders extends Admin_Controller
         }
 
         $this->data['page_title'] = 'Update Order';
-        $temp = array('qty' => $this->input->post('qty'));
         $this->form_validation->set_rules('product[]', 'Product name', 'trim|required');
+        $this->form_validation->set_rules('qty[]', 'Product Quantity', 'trim|required|callback_isQtyZero');
 
         if ($this->form_validation->run() == true) {
 
-            if ($temp['qty'] > 0) {
                 $update = $this->model_orders->update($id);
 
                 if ($update == true) {
                     $this->session->set_flashdata('success', 'Successfully updated');
                     redirect('orders/update/' . $id, 'refresh');
-                }
-            } else {
+                } else {
                 $this->session->set_flashdata('errors', 'Error occurred!!');
                 redirect('orders/update/' . $id, 'refresh');
             }
@@ -208,11 +208,10 @@ class Orders extends Admin_Controller
 
             foreach ($orders_item as $k => $v) {
                 $result['order_item'][] = $v;
+                $result['products'][] = $this->model_products->getProductData($v['product_id']);
             }
 
             $this->data['order_data'] = $result;
-
-            $this->data['products'] = $this->model_products->getActiveProductData();
 
             $this->render_template('orders/edit', $this->data);
         }

@@ -94,13 +94,16 @@
                     <?php if(isset($order_data['order_item'])): ?>
                       <?php $x = 1; ?>
                       <?php foreach ($order_data['order_item'] as $key => $val): ?>
-                        <?php //print_r($v); ?>
+
+                      <?php foreach ($order_data['products'] as $k => $v): ?>
+                              <?php //print_r($v); ?>
+                              <?php endforeach ?>
                        <tr id="row_<?php echo $x; ?>">
                          <td>
                           <select class="form-control select_group product" data-row-id="row_<?php echo $x; ?>" id="product_<?php echo $x; ?>" name="product[]" style="width:100%;" onchange="getProductData(<?php echo $x; ?>)" required>
                               <option value=""></option>
-                              <?php foreach ($products as $k => $v): ?>
-                                <option value="<?php echo $v['id'] ?>" <?php if($val['product_id'] == $v['id']) { echo "selected='selected'"; } ?>><?php echo $v['name'] ?></option>
+                              <?php foreach ($order_data['products'] as $k => $v): ?>
+                                <option value="<?php echo $v['id'] ?>" <?php if($val['product_id'] == $v['id']) { echo "selected='selected'";} ?>><?php echo $v['name'] ?></option>
                               <?php endforeach ?>
                             </select>
                           </td>
