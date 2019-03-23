@@ -44,9 +44,11 @@ class Reg extends Admin_Controller
         		'lastname' => $this->input->post('lastname'),
         		'phone' => $this->input->post('phone'),
         		'gender' => $this->input->post('gender') 
-        	);
+			);
+			// Get group id for user group
+			$group_id = $this->model_groups->getGroupIdByGroupName('Users');
 
-        	$create = $this->model_reg->create($data);
+        	$create = $this->model_reg->create($data,$group_id);
         	if($create == true) {
         		$this->session->set_flashdata('success', 'Successfully created');
 				redirect('auth/login', 'refresh');
@@ -68,8 +70,8 @@ class Reg extends Admin_Controller
 	public function password_hash($pass = '')
 	{
 		if($pass) {
-			$password = password_hash($pass, PASSWORD_DEFAULT);
-			return $password;
+			return password_hash($pass, PASSWORD_DEFAULT);
+			
 		}
 	}
 

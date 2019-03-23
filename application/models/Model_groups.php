@@ -58,4 +58,18 @@ class Model_groups extends CI_Model
 		return $result;
 
 	}
+	/**
+	 * getGroupIdByGroupName
+	 *
+	 * @param  mixed $group_name
+	 *
+	 * @return void
+	 */
+	public function getGroupIdByGroupName($group_name) 
+	{
+        $this->db->select('id');
+        $this->db->where('group_name', $group_name);
+		$query = $this->db->get('groups');
+        return $query->row()->id;
+	}
 }
