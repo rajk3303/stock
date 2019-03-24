@@ -82,7 +82,7 @@ class Model_orders extends CI_Model
             $product_data = $this->model_products->getProductData($this->input->post('product')[$x]);
             $qty = (int) $product_data['qty'] - (int) $this->input->post('qty')[$x];
             if ($qty === 0) {
-                $update_product = array('qty' => $qty, 'availability' => 0);
+                $update_product = array('qty' => $qty, 'availability' => 2);
             } else {
                 $update_product = array('qty' => $qty);
             }
@@ -106,6 +106,16 @@ class Model_orders extends CI_Model
     public function update($id)
     {
         if ($id) {
+            $count_product = count($this->input->post('product'));
+            for ($x = 0; $x < $count_product; $x++) {
+                $product_availability = $this->model_products->getProductAvailabilityById($this->input->post('product')[$x]);
+                log_message('error','prod availability-->>'.$product_availability);
+                if ($product_availability==='2') {
+                    log_message('debug','inside if of prod ava');
+                    return false;
+                }
+            }
+
             $user_id = $this->session->userdata('id');
             // fetch the order data
 
@@ -148,7 +158,6 @@ class Model_orders extends CI_Model
             $this->db->delete('orders_item');
 
             // now decrease the product qty
-            $count_product = count($this->input->post('product'));
             for ($x = 0; $x < $count_product; $x++) {
                 $items = array(
                     'order_id' => $id,

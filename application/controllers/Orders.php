@@ -189,7 +189,7 @@ class Orders extends Admin_Controller
                     $this->session->set_flashdata('success', 'Successfully updated');
                     redirect('orders/update/' . $id, 'refresh');
                 } else {
-                $this->session->set_flashdata('errors', 'Error occurred!!');
+                $this->session->set_flashdata('error', 'Stock not available!!');
                 redirect('orders/update/' . $id, 'refresh');
             }
 

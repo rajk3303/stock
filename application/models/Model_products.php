@@ -60,5 +60,18 @@ class Model_products extends CI_Model
 		$query = $this->db->query($sql);
 		return $query->num_rows();
 	}
-
+	/**
+	 * getProductAvailabilityById
+	 *
+	 * @param  mixed $id
+	 *
+	 * @return void
+	 */
+	public function getProductAvailabilityById($id)
+	{
+        $this->db->select('availability');
+        $this->db->where('id', $id);
+		$query = $this->db->get('products');
+        return $query->row()->availability;
+	}
 }
