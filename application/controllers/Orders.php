@@ -183,13 +183,16 @@ class Orders extends Admin_Controller
 
         if ($this->form_validation->run() == true) {
 
-                $update = $this->model_orders->update($id);
+            $update = $this->model_orders->update($id);
 
-                if ($update == true) {
-                    $this->session->set_flashdata('success', 'Successfully updated');
-                    redirect('orders/update/' . $id, 'refresh');
-                } else {
-                $this->session->set_flashdata('error', 'Stock not available!!');
+            if ($update == 'true') {
+                $this->session->set_flashdata('success', 'Successfully updated');
+                redirect('orders/update/' . $id, 'refresh');
+            } else if ($update) {
+                $this->session->set_flashdata('error', 'Stock not available for ' . $update['name'] . '!!');
+                redirect('orders/update/' . $id, 'refresh');
+            } else {
+                $this->session->set_flashdata('error', 'Error occurred!!');
                 redirect('orders/update/' . $id, 'refresh');
             }
 

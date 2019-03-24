@@ -111,8 +111,9 @@ class Model_orders extends CI_Model
                 $product_availability = $this->model_products->getProductAvailabilityById($this->input->post('product')[$x]);
                 log_message('error','prod availability-->>'.$product_availability);
                 if ($product_availability==='2') {
+                    $product_data = $this->model_products->getProductData($this->input->post('product')[$x]);
                     log_message('debug','inside if of prod ava');
-                    return false;
+                    return $product_data;
                 }
             }
 
@@ -176,7 +177,7 @@ class Model_orders extends CI_Model
                 $this->model_products->update($update_product, $this->input->post('product')[$x]);
             }
 
-            return true;
+            return 'true';
         }
     }
 
