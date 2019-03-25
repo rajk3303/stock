@@ -11,15 +11,13 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-
-
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/font-awesome/css/font-awesome.min.css') ?>">
   <!-- Ionicons -->
   <!-- <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/Ionicons/css/ionicons.min.css') ?>"> -->
   <!-- <link href='assets/bower_components/Ionicons/css/ionicons.min.css' rel="stylesheet"> -->
-  <!-- <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet"> -->
+  <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
 
 
   <!-- Theme style -->
@@ -35,18 +33,12 @@
   <![endif]-->
 
   <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
-  <link rel="stylesheet" href="<?php echo base_url("fonts/Sniglet-Regular.ttf") ?>">
-
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
+  <link rel="stylesheet" href="<?php echo base_url("system/fonts/Sniglet-Regular.ttf") ?>">
   <!-- <link rel="stylesheet" href="<?php echo base_url("https://github.com/elartix/circular-std/blob/master/fonts/CircularStd-Medium.ttf") ?>"> -->
-
   <!-- 'Fira Sans','Maven Pro','Nunito','Oxygen','Quicksand','Work Sans', -->
-
   <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
-
-
-  <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet"> -->
 
   <script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js') ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
@@ -87,10 +79,10 @@
     <form action="<?php echo base_url('auth/login') ?>" method="post">
       <div class="form-group has-feedback">
         <input type="email" class="form-control" name="email" value="<?php echo set_value('email'); ?>" placeholder="Email" autocomplete="off">
-        <!-- <i class="icon ion-md-mail form-control-feedback" size="large"></i> -->
+        <i class="icon ion-md-mail form-control-feedback"></i>
         <!-- <span class="icon ion-md-mail form-control-feedback"></span> -->
 
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
 
         <!-- <i class="icon ion-md-heart"></i>
         <ion-icon name="md-heart"></ion-icon> -->
@@ -98,8 +90,8 @@
       </div>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        <!-- <span class="icon ion-md-key form-control-feedback"></span> -->
+        <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
+        <span class="icon ion-md-key form-control-feedback"></span>
 
       </div>
       <div class="row">
@@ -136,7 +128,7 @@
 <!-- iCheck -->
 <script src="<?php echo base_url('assets/plugins/iCheck/icheck.min.js') ?>"></script>
 
-<!-- <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>  -->
+<script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script> 
 
 <script>
   $(function () {

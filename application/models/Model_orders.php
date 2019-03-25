@@ -109,12 +109,16 @@ class Model_orders extends CI_Model
             $count_product = count($this->input->post('product'));
             for ($x = 0; $x < $count_product; $x++) {
                 $product_availability = $this->model_products->getProductAvailabilityById($this->input->post('product')[$x]);
+                $product_data = $this->model_products->getProductData($this->input->post('product')[$x]);
+                
                 log_message('error','prod availability-->>'.$product_availability);
-                if ($product_availability==='2') {
-                    $product_data = $this->model_products->getProductData($this->input->post('product')[$x]);
+                    // return false;
+                if ($product_availability==='2' || $this->input->post('qty')[$x] > (int) $product_data['qty']) {
+                    
                     log_message('debug','inside if of prod ava');
                     return $product_data;
                 }
+                
             }
 
             $user_id = $this->session->userdata('id');

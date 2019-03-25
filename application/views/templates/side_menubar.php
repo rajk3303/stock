@@ -16,18 +16,26 @@
             <li class="treeview" id="mainUserNav">
             <a href="#">
               <i class="fa fa-users"></i>
+              <!-- <i class="icon ion-md-contact"></i> -->
               <span>Users</span>
               <span class="pull-right-container">
+              <!-- <i class="icon ion-ios-arrow-back"></i> -->
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
               <?php if(in_array('createUser', $user_permission)): ?>
-              <li id="createUserNav"><a href="<?php echo base_url('users/create') ?>"><i class="fa fa-circle-o"></i> Add User</a></li>
+              <li id="createUserNav"><a href="<?php echo base_url('users/create') ?>">
+              <i class="fa fa-circle-o">
+              <!-- <i class="icon ion-md-radio-button-off"></i>  -->
+              </i> Add User</a></li>
               <?php endif; ?>
 
               <?php if(in_array('updateUser', $user_permission) || in_array('viewUser', $user_permission) || in_array('deleteUser', $user_permission)): ?>
-              <li id="manageUserNav"><a href="<?php echo base_url('users') ?>"><i class="fa fa-circle-o"></i> Manage Users</a></li>
+              <li id="manageUserNav"><a href="<?php echo base_url('users') ?>">
+              <i class="fa fa-circle-o">
+              <!-- <i class="icon ion-md-radio-button-off"></i>  -->
+              </i> Manage Users</a></li>
             <?php endif; ?>
             </ul>
           </li>
