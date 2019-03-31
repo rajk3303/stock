@@ -112,8 +112,8 @@ class Products extends Admin_Controller
             redirect('dashboard', 'refresh');
         }
 
-		$this->form_validation->set_rules('product_name', 'Product name', 'trim|required|is_unique[products.name]');
-		$this->form_validation->set_rules('sku', 'SKU', 'trim|required|is_unique[products.sku]');
+		$this->form_validation->set_rules('product_name', 'Product name', 'trim|required|is_unique[products.name]', array('is_unique' => 'Product Already Exists!!'));
+		$this->form_validation->set_rules('sku', 'SKU', 'trim|required|is_unique[products.sku]',array('is_unique' => 'SKU Already Exists!!'));
 		$this->form_validation->set_rules('price', 'Price', 'trim|required');
 		$this->form_validation->set_rules('qty', 'Qty', 'trim|required');
         $this->form_validation->set_rules('store', 'Store', 'trim|required');
