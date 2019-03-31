@@ -43,8 +43,6 @@
           <form role="form" action="<?php base_url('users/create') ?>" method="post" enctype="multipart/form-data">
               <div class="box-body">
 
-                <?php echo validation_errors(); ?>
-
                 <!-- <div class="form-group">
 
                   <label for="product_image">Image</label>
@@ -57,28 +55,28 @@
 
                 <div class="form-group">
                   <label for="product_name">Product name</label>
-                  <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" autocomplete="off"/>
+                  <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" autocomplete="off" value="<?php echo set_value('product_name'); ?>"/>
                 </div>
 
                 <div class="form-group">
                   <label for="sku">SKU</label>
-                  <input type="text" class="form-control" id="sku" name="sku" placeholder="Enter sku" autocomplete="off" />
+                  <input type="text" class="form-control" id="sku" name="sku" placeholder="Enter sku" autocomplete="off" value="<?php echo set_value('sku'); ?>"/>
                 </div>
 
                 <div class="form-group">
                   <label for="price">Price</label>
-                  <input type="text" class="form-control" id="price" name="price" placeholder="Enter price" autocomplete="off" />
+                  <input type="text" class="form-control" id="price" name="price" placeholder="Enter price" autocomplete="off" value="<?php echo set_value('price'); ?>"/>
                 </div>
 
                 <div class="form-group">
                   <label for="qty">Qty</label>
-                  <input type="text" class="form-control" id="qty" name="qty" placeholder="Enter Qty" autocomplete="off" />
+                  <input type="text" class="form-control" id="qty" name="qty" placeholder="Enter Qty" autocomplete="off" value="<?php echo set_value('qty'); ?>"/>
                 </div>
 
                 <div class="form-group">
                   <label for="description">Description</label>
                   <textarea type="text" class="form-control" id="description" name="description" placeholder="Enter 
-                  description" autocomplete="off">
+                  description" autocomplete="off" value="<?php echo set_value('description'); ?>">
                   </textarea>
                 </div>
 

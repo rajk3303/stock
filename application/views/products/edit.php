@@ -43,8 +43,6 @@
           <form role="form" action="<?php base_url('users/update') ?>" method="post" enctype="multipart/form-data">
               <div class="box-body">
 
-                <?php echo validation_errors(); ?>
-
                 <div class="form-group">
                   <!-- <label>Image Preview: </label>
                   <img src="<?php echo base_url() . $product_data['image'] ?>" width="150" height="150" class="img-circle"> -->
