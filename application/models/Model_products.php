@@ -74,4 +74,17 @@ class Model_products extends CI_Model
 		$query = $this->db->get('products');
         return $query->row()->availability;
 	}
+
+	public function getQtyByName($name)
+
+	{
+		$this->db->select('qty');
+        $this->db->where('name', $name);
+		$query = $this->db->get('products');
+        return $query->row()->qty;
+
+//		$query="SELECT qty FROM `products` WHERE name = $name ";
+
+	}
+
 }
