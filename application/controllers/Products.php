@@ -117,7 +117,8 @@ class Products extends Admin_Controller
 		$this->form_validation->set_rules('price', 'Price', 'trim|required');
 		$this->form_validation->set_rules('qty', 'Qty', 'trim|required');
         $this->form_validation->set_rules('store', 'Store', 'trim|required');
-		$this->form_validation->set_rules('availability', 'Availability', 'trim|required');
+        $this->form_validation->set_rules('availability', 'Availability', 'trim|required');
+        $this->form_validation->set_rules('description', 'Description', 'trim');
 		
 	
         if ($this->form_validation->run() == TRUE) {
@@ -131,7 +132,7 @@ class Products extends Admin_Controller
         		'qty' => $this->input->post('qty'),
         		// 'image' => $upload_image,
         		'description' => $this->input->post('description'),
-        		'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
+        		// 'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
         		'brand_id' => json_encode($this->input->post('brands')),
         		'category_id' => json_encode($this->input->post('category')),
                 'store_id' => $this->input->post('store'),
@@ -161,9 +162,9 @@ class Products extends Admin_Controller
             // false case
             $this->session->set_flashdata('error', validation_errors());
         	// attributes 
-        	$attribute_data = $this->model_attributes->getActiveAttributeData();
+        	// $attribute_data = $this->model_attributes->getActiveAttributeData();
 
-        	$attributes_final_data = array();
+        	/* $attributes_final_data = array();
         	foreach ($attribute_data as $k => $v) {
         		$attributes_final_data[$k]['attribute_data'] = $v;
 
@@ -173,7 +174,7 @@ class Products extends Admin_Controller
         	}
 
         	$this->data['attributes'] = $attributes_final_data;
-			$this->data['brands'] = $this->model_brands->getActiveBrands();        	
+			 */$this->data['brands'] = $this->model_brands->getActiveBrands();        	
 			$this->data['category'] = $this->model_category->getActiveCategroy();        	
 			$this->data['stores'] = $this->model_stores->getActiveStore();        	
 
@@ -234,6 +235,7 @@ class Products extends Admin_Controller
         $this->form_validation->set_rules('qty', 'Qty', 'trim|required');
         $this->form_validation->set_rules('store', 'Store', 'trim|required');
         $this->form_validation->set_rules('availability', 'Availability', 'trim|required');
+        $this->form_validation->set_rules('description', 'Description', 'trim');
 
         if ($this->form_validation->run() == TRUE) {
             // true case
@@ -244,7 +246,7 @@ class Products extends Admin_Controller
                 'price' => $this->input->post('price'),
                 'qty' => $this->input->post('qty'),
                 'description' => $this->input->post('description'),
-                'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
+                // 'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
                 'brand_id' => json_encode($this->input->post('brands')),
                 'category_id' => json_encode($this->input->post('category')),
                 'store_id' => $this->input->post('store'),
@@ -278,7 +280,7 @@ class Products extends Admin_Controller
         else {
             $this->session->set_flashdata('error', validation_errors());
             // attributes 
-            $attribute_data = $this->model_attributes->getActiveAttributeData();
+           /*  $attribute_data = $this->model_attributes->getActiveAttributeData();
 
             $attributes_final_data = array();
             foreach ($attribute_data as $k => $v) {
@@ -290,7 +292,7 @@ class Products extends Admin_Controller
             }
             
             // false case
-            $this->data['attributes'] = $attributes_final_data;
+            $this->data['attributes'] = $attributes_final_data; */
             $this->data['brands'] = $this->model_brands->getActiveBrands();         
             $this->data['category'] = $this->model_category->getActiveCategroy();           
             $this->data['stores'] = $this->model_stores->getActiveStore();          

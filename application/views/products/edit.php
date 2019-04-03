@@ -85,7 +85,7 @@
                   </textarea>
                 </div>
 
-                <?php $attribute_id = json_decode($product_data['attribute_value_id']); ?>
+                <!-- <?php $attribute_id = json_decode($product_data['attribute_value_id']); ?>
                 <?php if($attributes): ?>
                   <?php foreach ($attributes as $k => $v): ?>
                     <div class="form-group">
@@ -97,7 +97,7 @@
                       </select>
                     </div>    
                   <?php endforeach ?>
-                <?php endif; ?>
+                <?php endif; ?> -->
 
                 <div class="form-group">
                   <label for="brands">Brands</label>

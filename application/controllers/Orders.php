@@ -106,7 +106,7 @@ class Orders extends Admin_Controller
         $this->form_validation->set_rules('customer_phone[]', 'Customer Phone', 'trim|required',array('required' => 'Please Enter Customer Phone!'));
 
         $this->form_validation->set_rules('product[]', 'Product name', 'trim|required');
-        $this->form_validation->set_rules('qty[]', 'Product Quantity', 'trim|required|callback_isQtyZero');
+        $this->form_validation->set_rules('qty[]', 'Product Quantity', 'trim|required|numeric|callback_isQtyZero');
 
         if ($this->form_validation->run() == true) {
             $order_id = $this->model_orders->create();

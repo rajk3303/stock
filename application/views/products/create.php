@@ -80,7 +80,7 @@
                   </textarea>
                 </div>
 
-                <?php if($attributes): ?>
+                <!-- <?php if($attributes): ?>
                   <?php foreach ($attributes as $k => $v): ?>
                     <div class="form-group">
                       <label for="groups"><?php echo $v['attribute_data']['name'] ?></label>
@@ -92,7 +92,7 @@
                     </div>    
                   <?php endforeach ?>
                 <?php endif; ?>
-
+ -->
                 <div class="form-group">
                   <label for="brands">Brands</label>
                   <select class="form-control select_group" id="brands" name="brands[]" multiple="multiple">
