@@ -114,6 +114,13 @@
             </li>
           <?php endif; ?>
 
+          <!-- <?php ?> -->
+            <li id="customers">
+              <a href="<?php echo base_url('customers/') ?>">
+                <i class="fa fa-files-o"></i> <span>Customers</span>
+              </a>
+            </li>
+          <!-- <?php ?> -->
 
           <?php if(in_array('createOrder', $user_permission) || in_array('updateOrder', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
             <li class="treeview" id="mainOrdersNav">
