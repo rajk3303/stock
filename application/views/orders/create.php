@@ -1,5 +1,3 @@
-
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -244,7 +242,12 @@
 
   function getTotal(row = null) {
     if(row) {
-      var total = Number($("#rate_value_"+row).val()) * Number($("#qty_"+row).val());
+      var total = Number($("#rate_value_"+row).val())  * Number($("#qty_"+row).val());
+      //  + Number($("#rate_value_").val())
+      //   +  Number($("#rate_value_"+row % 10 ).val())
+      //profit margin
+      //total = total + (total % ($("#profit"+row).val()));
+      
       total = total.toFixed(2);
       $("#amount_"+row).val(total);
       $("#amount_value_"+row).val(total);

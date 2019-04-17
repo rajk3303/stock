@@ -44,7 +44,8 @@ class Company extends Admin_Controller
         		'phone' => $this->input->post('phone'),
         		'country' => $this->input->post('country'),
         		'message' => $this->input->post('message'),
-                'currency' => $this->input->post('currency')
+				'currency' => $this->input->post('currency'),
+				'profit' => $this->input->post('profit')
         	);
 
 

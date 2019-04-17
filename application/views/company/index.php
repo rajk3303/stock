@@ -54,6 +54,12 @@
                   <input type="text" class="form-control" id="vat_charge_value" name="vat_charge_value" placeholder="Enter vat charge %" value="<?php echo $company_data['vat_charge_value'] ?>" autocomplete="off">
                 </div>
                 <div class="form-group">
+                  <label for="profit">profit (%)</label>
+                  <input type="number" class="form-control" id="profit" name="profit" placeholder="Enter profit margin %" value="<?php echo $company_data['profit'] ?>" autocomplete="off">
+                </div>
+
+
+                <div class="form-group">
                   <label for="address">Address</label>
                   <input type="text" class="form-control" id="address" name="address" placeholder="Enter address" value="<?php echo $company_data['address'] ?>" autocomplete="off">
                 </div>
