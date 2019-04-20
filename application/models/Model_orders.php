@@ -39,9 +39,9 @@ class Model_orders extends CI_Model
         $count_product = count($this->input->post('product'));
         for ($x = 0; $x < $count_product; $x++) {
             $product_data = $this->model_products->getProductData($this->input->post('product')[$x]);
-
+            $product_data['product_error_flag'] = true;
             if ($this->input->post('qty')[$x] > (int) $product_data['qty']) {
-                return false;
+                return $product_data;
             }
         }
         $bill_no = 'BILLNO-' . strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 4));

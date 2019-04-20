@@ -107,11 +107,14 @@ class Orders extends Admin_Controller
         if ($this->form_validation->run() == true) {
             $order_id = $this->model_orders->create();
 
-            if ($order_id) {
+            if ($order_id && !isset($order_id['product_error_flag'])) {
                 $this->session->set_flashdata('success', 'Successfully created');
                 redirect('orders/update/' . $order_id, 'refresh');
+            } else if(isset($order_id['product_error_flag'])) {
+                $this->session->set_flashdata('error', 'Stock not available for ' . $order_id['name'] . '. Available stock=' . $order_id['qty']);
+                $this->render_template('orders/create', $this->data);
             } else {
-                $this->session->set_flashdata('error', 'Stock not available');
+                $this->session->set_flashdata('error', 'Error occured');
                 $this->render_template('orders/create', $this->data);
             }
         } else {
