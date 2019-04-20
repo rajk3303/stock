@@ -33,14 +33,16 @@
   <![endif]-->
 
   <!-- Google Font -->
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
-  <link rel="stylesheet" href="<?php echo base_url("system/fonts/Sniglet-Regular.ttf") ?>">
-  <!-- <link rel="stylesheet" href="<?php echo base_url("https://github.com/elartix/circular-std/blob/master/fonts/CircularStd-Medium.ttf") ?>"> -->
-  <!-- 'Fira Sans','Maven Pro','Nunito','Oxygen','Quicksand','Work Sans', -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"> -->
+  
 
-  <script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js') ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>

@@ -69,7 +69,7 @@
                 <div class="form-group">
                   <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Phone</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" autocomplete="off">
+                    <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" autocomplete="off">
                   </div>
                 </div>
               </div>
@@ -97,7 +97,7 @@
                         <?php endforeach ?>
                       </select>
                     </td>
-                    <td><input type="text" name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)"></td>
+                    <td><input type="number" name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)"></td>
                     <td>
                       <input type="text" name="rate[]" id="rate_1" class="form-control" disabled autocomplete="off">
                       <input type="hidden" name="rate_value[]" id="rate_value_1" class="form-control" autocomplete="off">

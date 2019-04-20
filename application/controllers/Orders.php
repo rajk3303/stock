@@ -101,6 +101,9 @@ class Orders extends Admin_Controller
         $this->data['products'] = $this->model_products->getActiveProductData();
         $this->data['page_title'] = 'Add Order';
 
+        $this->form_validation->set_rules('customer_name[]', 'Customer Name', 'trim|required',array('required' => 'Please Enter Customer Name!'));	
+        $this->form_validation->set_rules('customer_address[]', 'Customer Address', 'trim|required',array('required' => 'Please Enter Customer Address!'));	
+        $this->form_validation->set_rules('customer_phone[]', 'Customer Phone', 'trim|required',array('required' => 'Please Enter Customer Phone!'));
         $this->form_validation->set_rules('product[]', 'Product name', 'trim|required');
         $this->form_validation->set_rules('qty[]', 'Product Quantity', 'trim|required|numeric|callback_isQtyZero');
 
