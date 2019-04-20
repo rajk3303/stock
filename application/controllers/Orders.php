@@ -101,10 +101,6 @@ class Orders extends Admin_Controller
         $this->data['products'] = $this->model_products->getActiveProductData();
         $this->data['page_title'] = 'Add Order';
 
-        $this->form_validation->set_rules('customer_name[]', 'Customer Name', 'trim|required',array('required' => 'Please Enter Customer Name!'));
-        $this->form_validation->set_rules('customer_address[]', 'Customer Address', 'trim|required',array('required' => 'Please Enter Customer Address!'));
-        $this->form_validation->set_rules('customer_phone[]', 'Customer Phone', 'trim|required',array('required' => 'Please Enter Customer Phone!'));
-
         $this->form_validation->set_rules('product[]', 'Product name', 'trim|required');
         $this->form_validation->set_rules('qty[]', 'Product Quantity', 'trim|required|numeric|callback_isQtyZero');
 
@@ -115,14 +111,7 @@ class Orders extends Admin_Controller
                 $this->session->set_flashdata('success', 'Successfully created');
                 redirect('orders/update/' . $order_id, 'refresh');
             } else {
-                
-                $mp=$this->load->model('model_products');
-                // $name[0]='test';
-                $name = $this->input->post('product');
-                // $name='test';
-                
-                
-                $this->session->set_flashdata('error', 'Available Quantity: '.$this->mp->getQtyByName($name));
+                $this->session->set_flashdata('error', 'Stock not available');
                 $this->render_template('orders/create', $this->data);
             }
         } else {
@@ -148,16 +137,6 @@ class Orders extends Admin_Controller
             return false;
         }
     }
-
-
-    /* public function getQtyByName($name)
-    {
-        $prodname = $this->model_products->getQtyByName($name);
-        return $prodname;
-    } */
-
-
-
     /*
      * It gets the product id passed from the ajax method.
      * It checks retrieves the particular product data from the product id
