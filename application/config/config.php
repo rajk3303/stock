@@ -522,3 +522,12 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+/**
+ * Mail Configuartion
+ */
+$config['MAIL_HOST'] = 'smtp.gmail.com';
+$config['MAIL_PORT'] = 587;
+$config['MAIL_USERNAME'] = 'arghyac35@gmail.com';
+$config['MAIL_FROM_NAME'] = 'Admin';
+$config['MAIL_PASSWORD'] = 'lmaflvxabyjkonjf';
+$config['MAIL_ENCRYPTION'] = 'tls';

@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
-
-<!-- <style>ion-icon{font-size: 128px;}</style> -->
-
 <head>
-  <meta charset="utf-8">
+<meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Log in</title>
+  <title>Forgot password</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/font-awesome/css/font-awesome.min.css') ?>">
+  
+  
   <!-- Ionicons -->
   <!-- <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/Ionicons/css/ionicons.min.css') ?>"> -->
   <!-- <link href='assets/bower_components/Ionicons/css/ionicons.min.css' rel="stylesheet"> -->
+  <!-- <link rel="stylesheet" href="<?php echo base_url('https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css') ?>"> -->
   <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
 
 
@@ -32,38 +32,38 @@
   <![endif]-->
 
   <!-- Google Font -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet"> -->
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet"> -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet"> -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
   
+  <link rel="stylesheet" href="<?php echo base_url("system/fonts/Sniglet-Regular.ttf") ?>">
+  
+  <!-- <link rel="stylesheet" href="<?php echo base_url("https://github.com/elartix/circular-std/blob/master/fonts/CircularStd-Medium.ttf") ?>"> -->
 
-<script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js') ?>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <!-- 'Fira Sans','Maven Pro','Nunito','Oxygen','Quicksand','Work Sans', -->
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet"> -->
+
+  <script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js') ?>"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
 </head>
-
-<style>
-.login-page, .register-page {
-background: url("https://pwnj.pw/Y5") no-repeat center center fixed;
-/* background-color:#ffffff  */
-background-size: cover;
-}
-</style>
-
-<body class="hold-transition login-page" >
-<div class="login-box">
-  <div class="login-logo">
-    <a><img src="https://pwnj.pw/Yw" width="350" height="75" style="padding:10px;padding-bottom:0px;"></a>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="register-logo">
+    <b>Simplentory</b>
   </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
 
-    <?php echo validation_errors(); ?>
+  <div class="register-box-body">
+    <p class="login-box-msg">Forgot password
+      <i class="icon ion-md-person-add"></i></span>
+      <!-- <i class="fas fa-fish"></i> -->
+    </p>
 
-<script type="text/javascript">
+    <?php echo validation_errors(); ?>  
+
+    <script type="text/javascript">
 <?php if (!empty($errors)) {?>
   toastr.error("<?php echo $errors; ?>");
 <?php }?>
@@ -81,55 +81,28 @@ background-size: cover;
 
 </script>
 
-    <form action="<?php echo base_url('auth/login') ?>" method="post">
-      <div class="form-group has-feedback">
-        <input type="email" class="form-control" name="email" value="<?php echo set_value('email'); ?>" placeholder="Email" autocomplete="off">
-        <i class="icon ion-md-mail form-control-feedback"></i>
-        <!-- <span class="icon ion-md-mail form-control-feedback"></span> -->
+    <form action="<?php echo base_url('forgotPassword/forgot') ?>" method="post">
 
-        <!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
-
-        <!-- <i class="icon ion-md-heart"></i>
-        <ion-icon name="md-heart"></ion-icon> -->
-
+    <div class="form-group has-feedback">
+        <input type="email" class="form-control" name="email" value="<?php echo set_value('email'); ?>" placeholder="Email" required>
+        <i class="icon ion-ios-at form-control-feedback"></i>
       </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off">
-        <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
-        <span class="icon ion-md-key form-control-feedback"></span>
-
-      </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Remember Me
-            </label>
-          </div>
-        </div>
+      <div class="row" style="display: flex;justify-content: center;">
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
+          
         </div>
         <!-- /.col -->
       </div>
     </form>
 
-    <div class="row">
-        <div class="col-xs-8">
-        New user? <a href="<?php echo base_url('reg/create') ?>">Click here to Sign up</a>
-        </div>
-        <div class="col-xs-4">
-        <a href="<?php echo base_url('forgotPassword/forgot') ?>">Forgot Password</a>
-        </div>
-      </div>
+
   </div>
-  <!-- /.login-box-body -->
+  <!-- /.form-box -->
 </div>
-<!-- /.login-box -->
-
-<!-- jQuery 3 -->
-
+<!-- /.register-box -->
 
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
@@ -137,13 +110,12 @@ background-size: cover;
 <script src="<?php echo base_url('assets/plugins/iCheck/icheck.min.js') ?>"></script>
 
 <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script> 
-
 <script>
   $(function () {
     $('input').iCheck({
       checkboxClass: 'icheckbox_square-blue',
       radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
+      increaseArea: '20%' /* optional */
     });
   });
 </script>
