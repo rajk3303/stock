@@ -46,7 +46,7 @@
 
 <style>
 .login-page, .register-page {
-background: url("https://doc-0c-6k-docs.googleusercontent.com/docs/securesc/j420qtfj2lpubnsn9c8cbor3i2c151eh/928cs793ukbb2d8okq31m3308p6gt0ek/1555833600000/14811868911354312016/14811868911354312016/1zuhALe46pVT7_ZvOWGo9HzAx5NvLhKI-?e=view") no-repeat center center fixed;
+background: url("https://pwnj.pw/Y5") no-repeat center center fixed;
 /* background-color:#ffffff  */
 background-size: cover;
 }
@@ -55,7 +55,7 @@ background-size: cover;
 <body class="hold-transition login-page" >
 <div class="login-box">
   <div class="login-logo">
-    <a><img src="https://doc-0k-6k-docs.googleusercontent.com/docs/securesc/j420qtfj2lpubnsn9c8cbor3i2c151eh/pnsp5ii0h236jmrf8c1pin563g97sc65/1555833600000/14811868911354312016/14811868911354312016/1nMeAMKPIQBQgCPrzZI7DuSBoW5ztrEes?e=view" width="350" height="75" style="padding:10px;padding-bottom:0px;"></a>
+    <a><img src="https://pwnj.pw/Yw" width="350" height="75" style="padding:10px;padding-bottom:0px;"></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

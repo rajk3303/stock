@@ -69,7 +69,7 @@
                 <div class="form-group">
                   <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Phone</label>
                   <div class="col-sm-7">
-                    <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" autocomplete="off">
+                    <input type="number" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" autocomplete="off">
                   </div>
                 </div>
               </div>
