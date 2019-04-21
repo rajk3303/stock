@@ -4,7 +4,6 @@
 <!-- <style>ion-icon{font-size: 128px;}</style> -->
 
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Log in</title>
@@ -35,11 +34,11 @@
   <!-- Google Font -->
   
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet"> -->
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet"> -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet"> -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
   
 
 <script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js') ?>"></script>
@@ -47,9 +46,17 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
 
+<style>
+.login-page, .register-page {
 
+background: url("https://i.ibb.co/xMb5n49/bg.jpg") no-repeat center center fixed;
+/* background-color:#ffffff  */
+background-size: cover;
+}
 
-<body class="hold-transition login-page">
+</style>
+
+<body class="hold-transition login-page" >
 <div class="login-box">
   <div class="login-logo">
     <a><b>Login</b></a>

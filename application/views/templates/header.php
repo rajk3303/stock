@@ -51,11 +51,11 @@ ion-icon {
   <![endif]-->
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet"> -->
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet"> -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet"> -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
   
 
   <!-- jQuery 3 -->

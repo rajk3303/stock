@@ -47,6 +47,13 @@
 
 
 </head>
+<style>
+.login-page, .register-page {
+/* background: #000000; */
+background-image: url("C:/xampp/htdocs/stock/assets/images/bg.jpg") no-repeat center center fixed;
+background-size: cover;
+}
+</style>
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
