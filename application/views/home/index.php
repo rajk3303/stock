@@ -13,7 +13,7 @@
       <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 
       <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-      <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="<?php echo base_url('assets/index.css') ?>">
 
       <script src="scripts/countdown.js"></script>
       <script src="scripts/navigationbar.js"></script>
@@ -32,7 +32,7 @@
             <div id="splash">
 
               <div id="centeringdiv">
-                <img id="logomain" class="logoanimation" src="assets/simplentorylogo.png" width="790vw" height="240vw"></img>
+                <img id="logomain" class="logoanimation" src="<?php echo base_url('assets/images/simplentorylogo.png') ?>" width="790vw" height="240vw"></img>
               <br />
                 <br/>
                 <p class="descriptiontext">A simple to use & general purpose stock management solution </p>
@@ -42,12 +42,12 @@
                   <div class="row" >
                     
                     <div class="column">
-                      <a href="http://localhost/stock/auth/login">
+                      <a href="<?php echo base_url('auth/login') ?>">
                         <button type="button" id="loginbtn" ><span>Login</span></button>
                       </a> 
                     </div>
                     <div class="column">
-                      <a href="http://localhost/stock/reg/create">
+                      <a href="<?php echo base_url('reg/create') ?>">
                         <button type="button" id="registerbtn"><span>Signup</span></button>
                       </a>
                       </div>
