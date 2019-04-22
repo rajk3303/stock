@@ -1,3 +1,10 @@
+<?php date_default_timezone_set('Asia/Kolkata'); ?>
+<style>
+.asterix{
+  color:red;
+  font-weight:bold
+}
+</style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -36,6 +43,7 @@
         <div class="box">
           <div class="box-header">
             <h3 class="box-title">Edit Order</h3>
+            <p style="color:red">Required Fields are Marked with *</p>
           </div>
           <!-- /.box-header -->
           <form role="form" action="<?php base_url('orders/create') ?>" method="post" class="form-horizontal">
@@ -44,30 +52,30 @@
               <?php echo validation_errors(); ?>
 
               <div class="form-group">
-                <label for="date" class="col-sm-12 control-label">Date: <?php echo date('Y-m-d') ?></label>
+                <label for="date" class="col-sm-12 control-label">Date: <?php echo date('d-m-Y') ?></label>
               </div>
               <div class="form-group">
-                <label for="time" class="col-sm-12 control-label">Date: <?php echo date('h:i a') ?></label>
+                <label for="time" class="col-sm-12 control-label">Time: <?php echo date('h:i a') ?></label>
               </div>
 
               <div class="col-md-4 col-xs-12 pull pull-left">
 
                 <div class="form-group">
-                  <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Name</label>
+                  <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Name <span class="asterix">*</span></label>
                   <div class="col-sm-7">
                     <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Enter Customer Name" value="<?php echo $order_data['order']['customer_name'] ?>" autocomplete="off" />
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Address</label>
+                  <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Address <span class="asterix">*</span></label>
                   <div class="col-sm-7">
                     <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="Enter Customer Address" value="<?php echo $order_data['order']['customer_address'] ?>" autocomplete="off">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Phone</label>
+                  <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Phone <span class="asterix">*</span></label>
                   <div class="col-sm-7">
                     <input type="text" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" value="<?php echo $order_data['order']['customer_phone'] ?>" autocomplete="off">
                   </div>
@@ -79,8 +87,8 @@
               <table class="table table-bordered" id="product_info_table">
                 <thead>
                   <tr>
-                    <th style="width:50%">Product</th>
-                    <th style="width:10%">Qty</th>
+                    <th style="width:50%">Product <span class="asterix">*</span></th>
+                    <th style="width:10%">Qty <span class="asterix">*</span></th>
                     <th style="width:10%">Rate</th>
                     <th style="width:20%">Amount</th>
                     <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>
@@ -108,7 +116,7 @@
                             <?php endforeach ?>
                           </select>
                         </td>
-                        <td><input type="text" name="qty[]" id="qty_<?php echo $x; ?>" class="form-control" required onkeyup="getTotal(<?php echo $x; ?>)" value="<?php echo $val['qty'] ?>" autocomplete="off"></td>
+                        <td><input type="number" name="qty[]" id="qty_<?php echo $x; ?>" class="form-control" required onkeyup="getTotal(<?php echo $x; ?>)" value="<?php echo $val['qty'] ?>" autocomplete="off"></td>
                         <td>
                           <input type="text" name="rate[]" id="rate_<?php echo $x; ?>" class="form-control" disabled value="<?php echo $val['rate'] ?>" autocomplete="off">
                           <input type="hidden" name="rate_value[]" id="rate_value_<?php echo $x; ?>" class="form-control" value="<?php echo $val['rate'] ?>" autocomplete="off">

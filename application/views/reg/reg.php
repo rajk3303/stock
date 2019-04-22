@@ -41,7 +41,7 @@
 </head>
 <style>
 .login-page, .register-page {
-background: url("https://pwnj.pw/Y5") no-repeat center center fixed;
+background: url("<?php echo base_url('assets/images/bg.jpg') ?>") no-repeat center center fixed;
 /* background-color:#ffffff  */
 background-size: cover;
 }
@@ -50,7 +50,7 @@ background-size: cover;
 
 <div class="register-box">
   <div class="register-logo">
-  <img src="https://pwnj.pw/Yw" width="350" height="75" style="padding:10px;padding-bottom:0px;">
+  <img src="<?php echo base_url('assets/images/simplentorylogo.png') ?>" width="350" height="75" style="padding:10px;padding-bottom:0px;">
   </div>
 
   <div class="register-box-body">

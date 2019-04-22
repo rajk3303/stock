@@ -46,7 +46,7 @@
 
 <style>
 .login-page, .register-page {
-background: url("https://pwnj.pw/Y5") no-repeat center center fixed;
+background: url("<?php echo base_url('assets/images/bg.jpg') ?>") no-repeat center center fixed;
 /* background-color:#ffffff  */
 background-size: cover;
 }
@@ -55,7 +55,7 @@ background-size: cover;
 <body class="hold-transition login-page" >
 <div class="login-box">
   <div class="login-logo">
-    <a><img src="https://pwnj.pw/Yw" width="350" height="75" style="padding:10px;padding-bottom:0px;"></a>
+    <a><img src="<?php echo base_url('assets/images/simplentorylogo.png') ?>" width="350" height="75" style="padding:10px;padding-bottom:0px;"></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -102,9 +102,9 @@ background-size: cover;
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
-            <label>
+            <!-- <label>
               <input type="checkbox"> Remember Me
-            </label>
+            </label> -->
           </div>
         </div>
         <!-- /.col -->
@@ -119,9 +119,9 @@ background-size: cover;
         <div class="col-xs-8">
         New user? <a href="<?php echo base_url('reg/create') ?>">Click here to Sign up</a>
         </div>
-        <div class="col-xs-4">
+        <!-- <div class="col-xs-4">
         <a href="<?php echo base_url('forgotPassword/forgot') ?>">Forgot Password</a>
-        </div>
+        </div> -->
       </div>
   </div>
   <!-- /.login-box-body -->

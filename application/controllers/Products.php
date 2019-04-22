@@ -73,15 +73,15 @@ class Products extends Admin_Controller
             } */
 
             if($value['qty'] > 0 && $value['qty'] <= 20) {
-                $qty_status = '<span class="label label-warning">Low !</span>';
+                $qty_status = '<span class="label label-warning">Low!</span>';
             }
             if ($value['qty'] < 0) {
                 $qty_status = '<span class="label label-danger">INVALID!!!</span>';
             }
             if($value['qty'] == 0) {
-                $qty_status = '<span class="label label-danger">Out of stock !</span>';
+                $qty_status = '<span class="label label-danger">Out Of Stock!!</span>';
             }
-            if ($value['qty'] > 0 && $value['qty'] < 10) {
+            if ($value['qty'] > 0 && $value['qty'] < 5) {
                 $qty_status = '<span class="label label-danger">Order More Now!!!</span>';
             }
             
@@ -114,11 +114,13 @@ class Products extends Admin_Controller
 
 		$this->form_validation->set_rules('product_name', 'Product name', 'trim|required|is_unique[products.name]', array('is_unique' => 'Product Already Exists!!'));
 		$this->form_validation->set_rules('sku', 'SKU', 'trim|required|is_unique[products.sku]',array('is_unique' => 'SKU Already Exists!!'));
-		$this->form_validation->set_rules('price', 'Price', 'trim|required');
-		$this->form_validation->set_rules('qty', 'Qty', 'trim|required');
+		$this->form_validation->set_rules('price', 'Price', 'trim|required|is_natural');
+		$this->form_validation->set_rules('qty[]', 'Qty', 'trim|required|is_natural|callback_isQtyZero');
         $this->form_validation->set_rules('store', 'Store', 'trim|required');
         $this->form_validation->set_rules('availability', 'Availability', 'trim|required');
-        $this->form_validation->set_rules('description', 'Description', 'trim');
+        // $this->form_validation->set_rules('description', 'Description', 'trim');
+        // $this->form_validation->set_rules('brands', 'Brand', 'required');
+        // $this->form_validation->set_rules('category', 'Category', 'required');
 		
 	
         if ($this->form_validation->run() == TRUE) {
@@ -173,14 +175,27 @@ class Products extends Admin_Controller
         		$attributes_final_data[$k]['attribute_value'] = $value;
         	}
 
-        	$this->data['attributes'] = $attributes_final_data;
-			 */$this->data['brands'] = $this->model_brands->getActiveBrands();        	
+        	$this->data['attributes'] = $attributes_final_data;*/
+		    $this->data['brands'] = $this->model_brands->getActiveBrands();        	
 			$this->data['category'] = $this->model_category->getActiveCategroy();        	
 			$this->data['stores'] = $this->model_stores->getActiveStore();        	
 
             $this->render_template('products/create', $this->data);
         }	
-	}
+    }
+    
+
+    public function isQtyZero($qty)
+    {
+        if ($qty > 0) {
+            return true;
+        } else {
+            $this->form_validation->set_message(
+                'isQtyZero', 'Quantity Cant be 0.'
+            );
+            return false;
+        }
+    }
 
     /*
     * This function is invoked from another function to upload the image into the assets folder
@@ -231,8 +246,8 @@ class Products extends Admin_Controller
 
         $this->form_validation->set_rules('product_name', 'Product name', 'trim|required');
         $this->form_validation->set_rules('sku', 'SKU', 'trim|required');
-        $this->form_validation->set_rules('price', 'Price', 'trim|required');
-        $this->form_validation->set_rules('qty', 'Qty', 'trim|required');
+        $this->form_validation->set_rules('price', 'Price', 'trim|required|is_natural');
+        $this->form_validation->set_rules('qty[]', 'Qty', 'trim|required|is_natural|callback_isQtyZero');
         $this->form_validation->set_rules('store', 'Store', 'trim|required');
         $this->form_validation->set_rules('availability', 'Availability', 'trim|required');
         $this->form_validation->set_rules('description', 'Description', 'trim');

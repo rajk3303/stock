@@ -1,3 +1,11 @@
+<?php date_default_timezone_set('Asia/Kolkata'); ?>
+<style>
+.asterix{
+  color:red;
+  font-weight:bold
+}
+</style>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -36,6 +44,7 @@
         <div class="box">
           <div class="box-header">
             <h3 class="box-title">Add Order</h3>
+            <p style="color:red">Required Fields are Marked with *</p>
           </div>
           <!-- /.box-header -->
           <form role="form" action="<?php base_url('orders/create') ?>" method="post" class="form-horizontal">
@@ -44,30 +53,30 @@
               <?php echo validation_errors(); ?>
 
               <div class="form-group">
-                <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('Y-m-d') ?></label>
+                <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('d-m-Y') ?></label>
               </div>
               <div class="form-group">
-                <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('h:i a') ?></label>
+                <label for="gross_amount" class="col-sm-12 control-label">Time: <?php echo date('h:i a') ?></label>
               </div>
 
               <div class="col-md-4 col-xs-12 pull pull-left">
 
                 <div class="form-group">
-                  <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Name</label>
+                  <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Name <span class="asterix">*</span></label>
                   <div class="col-sm-7">
                     <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Enter Customer Name" autocomplete="off" />
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Address</label>
+                  <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Address <span class="asterix">*</span></label>
                   <div class="col-sm-7">
                     <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="Enter Customer Address" autocomplete="off">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Phone</label>
+                  <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Phone <span class="asterix">*</span></label>
                   <div class="col-sm-7">
                     <input type="number" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" autocomplete="off">
                   </div>
@@ -79,8 +88,8 @@
               <table class="table table-bordered" id="product_info_table">
                 <thead>
                   <tr>
-                    <th style="width:50%">Product</th>
-                    <th style="width:10%">Qty</th>
+                    <th style="width:50%">Product <span class="asterix">*</span></th>
+                    <th style="width:10%">Qty <span class="asterix">*</span></th>
                     <th style="width:10%">Rate</th>
                     <th style="width:20%">Amount</th>
                     <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>

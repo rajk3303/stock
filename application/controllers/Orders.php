@@ -12,6 +12,8 @@ class Orders extends Admin_Controller
 
         $this->data['page_title'] = 'Orders';
 
+        $this->load->helper('date');
+
         $this->load->model('model_orders');
         $this->load->model('model_products');
         $this->load->model('model_company');
@@ -105,7 +107,7 @@ class Orders extends Admin_Controller
         $this->form_validation->set_rules('customer_address[]', 'Customer Address', 'trim|required',array('required' => 'Please Enter Customer Address!'));	
         $this->form_validation->set_rules('customer_phone[]', 'Customer Phone', 'trim|required',array('required' => 'Please Enter Customer Phone!'));
         $this->form_validation->set_rules('product[]', 'Product name', 'trim|required');
-        $this->form_validation->set_rules('qty[]', 'Product Quantity', 'trim|required|numeric|callback_isQtyZero');
+        $this->form_validation->set_rules('qty[]', 'Product Quantity', 'trim|required|is_natural|callback_isQtyZero');
 
         if ($this->form_validation->run() == true) {
             $order_id = $this->model_orders->create();
@@ -204,6 +206,8 @@ class Orders extends Admin_Controller
 
         } else {
             // false case
+            $this->session->set_flashdata('error', validation_errors());
+            
             $company = $this->model_company->getCompanyData(1);
             $this->data['company_data'] = $company;
             $this->data['is_vat_enabled'] = ($company['vat_charge_value'] > 0) ? true : false;

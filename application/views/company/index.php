@@ -73,9 +73,7 @@
                 </div>
                 <div class="form-group">
                   <label for="permission">Message</label>
-                  <textarea class="form-control" id="message" name="message">
-                     <?php echo $company_data['message'] ?>
-                  </textarea>
+                  <textarea class="form-control" id="message" name="message"><?php echo $company_data['message'] ?></textarea>
                 </div>
                 <div class="form-group">
                   <label for="currency">Currency</label>

@@ -1,4 +1,9 @@
-
+<style>
+.asterix{
+  color:red;
+  font-weight:bold
+}
+</style>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -35,6 +40,7 @@
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Edit User</h3>
+              <p style="color:red">Required Fields are Marked with *</p>
             </div>
             <form role="form" action="<?php base_url('users/create') ?>" method="post">
               <div class="box-body">
@@ -42,7 +48,7 @@
                 <?php echo validation_errors(); ?>
 
                 <div class="form-group">
-                  <label for="groups">Groups</label>
+                  <label for="groups">Groups  <span class="asterix">*</span></label>
                   <select class="form-control" id="groups" name="groups">
                     <option value="">Select Groups</option>
                     <?php foreach ($group_data as $k => $v): ?>
@@ -52,32 +58,32 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="username">Username</label>
+                  <label for="username">Username  <span class="asterix">*</span></label>
                   <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?php echo $user_data['username'] ?>" autocomplete="off">
                 </div>
 
                 <div class="form-group">
-                  <label for="email">Email</label>
+                  <label for="email">Email  <span class="asterix">*</span></label>
                   <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $user_data['email'] ?>" autocomplete="off">
                 </div>                
 
                 <div class="form-group">
-                  <label for="fname">First name</label>
+                  <label for="fname">First name  <span class="asterix">*</span></label>
                   <input type="text" class="form-control" id="fname" name="fname" placeholder="First name" value="<?php echo $user_data['firstname'] ?>" autocomplete="off">
                 </div>
 
                 <div class="form-group">
-                  <label for="lname">Last name</label>
+                  <label for="lname">Last name  <span class="asterix">*</span></label>
                   <input type="text" class="form-control" id="lname" name="lname" placeholder="Last name" value="<?php echo $user_data['lastname'] ?>" autocomplete="off">
                 </div>
 
                 <div class="form-group">
-                  <label for="phone">Phone</label>
+                  <label for="phone">Phone  <span class="asterix">*</span></label>
                   <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" value="<?php echo $user_data['phone'] ?>" autocomplete="off">
                 </div>
 
                 <div class="form-group">
-                  <label for="gender">Gender</label>
+                  <label for="gender">Gender  <span class="asterix">*</span></label>
                   <div class="radio">
                     <label>
                       <input type="radio" name="gender" id="male" value="1" <?php if($user_data['gender'] == 1) {

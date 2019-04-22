@@ -46,11 +46,15 @@ class Users extends Admin_Controller
 
 		$this->form_validation->set_rules('groups', 'Group', 'required');
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]|is_unique[users.username]');
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|is_unique[users.email]');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
 		$this->form_validation->set_rules('cpassword', 'Confirm password', 'trim|required|matches[password]');
 		$this->form_validation->set_rules('fname', 'First name', 'trim|required');
+		$this->form_validation->set_rules('phone', 'Phone', 'trim|required|max_length[10]|min_length[10]|regex_match[/^[0-9]{10}$/]');
+		
 
+
+		
         if ($this->form_validation->run() == TRUE) {
             // true case
             $password = $this->password_hash($this->input->post('password'));
@@ -83,6 +87,19 @@ class Users extends Admin_Controller
         }	
 
 		
+	}
+
+	public function regex_check($str)
+	{
+		if (preg_match("/^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$/", $str))
+		{
+			$this->form_validation->set_message('regex_check', 'The %s field is not valid!');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
 	}
 
 	public function password_hash($pass = '')
