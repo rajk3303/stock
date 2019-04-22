@@ -65,7 +65,7 @@ class Orders extends Admin_Controller
                 $buttons .= ' <button type="button" class="btn btn-default" onclick="removeFunc(' . $value['id'] . ')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i></button>';
             }
 
-            if ($value['paid_status'] == 1) {
+            if ($value['paid_status'] == 2) {
                 $paid_status = '<span class="label label-success">Paid</span>';
             } else {
                 $paid_status = '<span class="label label-warning">Not Paid</span>';
