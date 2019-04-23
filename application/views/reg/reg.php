@@ -56,7 +56,9 @@ background-size: cover;
   <div class="register-box-body">
     <p class="login-box-msg">Register a new user
       <i class="icon ion-md-person-add"></i></span>
+    
       <!-- <i class="fas fa-fish"></i> -->
+      <p style="color:red; text-align:center">All Fields are Required!</p>
     </p>
 
     <?php echo validation_errors(); ?>  
@@ -121,9 +123,9 @@ background-size: cover;
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
-            <label>
+            <!-- <label>
               <input type="checkbox"> I agree to the <a href="#">terms</a>
-            </label>
+            </label> -->
           </div>
         </div>
         <!-- /.col -->
@@ -137,7 +139,8 @@ background-size: cover;
     </form>
 
 
-    Already a member? <a href="<?php echo base_url('auth/login') ?>" class="text-center">Sign in</a>
+    Already a member? <a href="<?php echo base_url('auth/login') ?>" class="text-center">Sign in</a><br>
+    
 
   </div>
   <!-- /.form-box -->

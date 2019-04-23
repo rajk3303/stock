@@ -49,8 +49,8 @@ class Users extends Admin_Controller
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
 		$this->form_validation->set_rules('cpassword', 'Confirm password', 'trim|required|matches[password]');
-		$this->form_validation->set_rules('fname', 'First name', 'trim|required');
-		$this->form_validation->set_rules('phone', 'Phone', 'trim|required|max_length[10]|min_length[10]|regex_match[/^[0-9]{10}$/]');
+		$this->form_validation->set_rules('fname', 'First name', 'trim|required|alpha');
+		$this->form_validation->set_rules('phone', 'Phone', 'trim|required|is_natural|max_length[10]|min_length[10]|regex_match[/^[0-9]{10}$/]');
 		
 
 
@@ -118,9 +118,10 @@ class Users extends Admin_Controller
 
 		if($id) {
 			$this->form_validation->set_rules('groups', 'Group', 'required');
-			$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]');
-			$this->form_validation->set_rules('email', 'Email', 'trim|required');
-			$this->form_validation->set_rules('fname', 'First name', 'trim|required');
+			$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]|is_unique[users.username]');
+			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
+			$this->form_validation->set_rules('fname', 'First name', 'trim|required|alpha');
+			$this->form_validation->set_rules('phone', 'Phone', 'trim|required|is_natural|max_length[10]|min_length[10]|regex_match[/^[0-9]{10}$/]');
 
 
 			if ($this->form_validation->run() == TRUE) {
@@ -257,7 +258,7 @@ class Users extends Admin_Controller
 		$id = $this->session->userdata('id');
 
 		if($id) {
-			$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]');
+			$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]|is_unique[users.username]');
 			$this->form_validation->set_rules('email', 'Email', 'trim|required');
 			$this->form_validation->set_rules('fname', 'First name', 'trim|required');
 

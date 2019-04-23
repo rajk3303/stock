@@ -30,10 +30,12 @@ class Reg extends Admin_Controller
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|is_unique[users.email]');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
 		$this->form_validation->set_rules('cpassword', 'Confirm password', 'trim|required|matches[password]');
-		$this->form_validation->set_rules('firstname', 'First name', 'trim|required');
+		$this->form_validation->set_rules('firstname', 'First name', 'trim|required|alpha');
+		$this->form_validation->set_rules('lastname', 'Last name', 'trim|required|alpha');
 		$this->form_validation->set_rules('gender', 'Gender', 'required');
-
-        if ($this->form_validation->run() == TRUE) {
+		$this->form_validation->set_rules('customer_phone[]', 'Customer Phone', 'trim|required|is_natural|max_length[10]|min_length[10]|regex_match[/^[0-9]{10}$/]');
+		
+		if ($this->form_validation->run() == TRUE) {
 			
             $password = $this->password_hash($this->input->post('password'));
         	$data = array(

@@ -105,7 +105,7 @@ class Orders extends Admin_Controller
 
         $this->form_validation->set_rules('customer_name[]', 'Customer Name', 'trim|required',array('required' => 'Please Enter Customer Name!'));	
         $this->form_validation->set_rules('customer_address[]', 'Customer Address', 'trim|required',array('required' => 'Please Enter Customer Address!'));	
-        $this->form_validation->set_rules('customer_phone[]', 'Customer Phone', 'trim|required',array('required' => 'Please Enter Customer Phone!'));
+        $this->form_validation->set_rules('customer_phone[]', 'Customer Phone', 'trim|required|is_natural|max_length[10]|min_length[10]|regex_match[/^[0-9]{10}$/]'',array('required' => 'Please Enter Customer Phone!'));
         $this->form_validation->set_rules('product[]', 'Product name', 'trim|required');
         $this->form_validation->set_rules('qty[]', 'Product Quantity', 'trim|required|is_natural|callback_isQtyZero');
 

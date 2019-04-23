@@ -53,8 +53,7 @@ class Exports extends Admin_Controller{
         $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'bill_no');
         $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'customer_name');
         $objPHPExcel->getActiveSheet()->SetCellValue('D1', 'customer_address');
-        $objPHPExcel->getActiveSheet()->SetCellValue('E1', 'customer_phone');       
-        $objPHPExcel->getActiveSheet()->SetCellValue('F1', 'date_time'); 
+        $objPHPExcel->getActiveSheet()->SetCellValue('E1', 'customer_phone');        
         $objPHPExcel->getActiveSheet()->SetCellValue('G1', 'gross_amount'); 
         $objPHPExcel->getActiveSheet()->SetCellValue('H1', 'SGST %'); 
         $objPHPExcel->getActiveSheet()->SetCellValue('I1', 'SGST  Charged'); 
@@ -73,7 +72,6 @@ class Exports extends Admin_Controller{
             $objPHPExcel->getActiveSheet()->SetCellValue('C' . $rowCount, $val['customer_name']);
             $objPHPExcel->getActiveSheet()->SetCellValue('D' . $rowCount, $val['customer_address']);
             $objPHPExcel->getActiveSheet()->SetCellValue('E' . $rowCount, $val['customer_phone']);
-            $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount, $val['date_time']);
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount, $val['gross_amount']);
             $objPHPExcel->getActiveSheet()->SetCellValue('H' . $rowCount, $val['service_charge_rate']);
             $objPHPExcel->getActiveSheet()->SetCellValue('I' . $rowCount, $val['service_charge']);

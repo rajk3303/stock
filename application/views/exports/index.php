@@ -4,7 +4,7 @@
   <section class="content-header">
     <h1>
       Export
-      <small>Excel</small>
+      <small> Excel</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -51,7 +51,6 @@
                 <th class="header">customer_name</th>   
                 <th class="header">customer_address</th>
                 <th class="header">customer_phone</th>
-                <th class="header">date_time</th>
                 <th class="header">gross_amount</th>
                 <th class="header">SGST %</th>
                 <th class="header">SGST Charged</th>
@@ -76,7 +75,6 @@
                         <td><?php echo $val['customer_name']; ?></td>
                         <td><?php echo $val['customer_address']; ?></td>                       
                         <td><?php echo $val['customer_phone']; ?></td>
-                        <td><?php echo $val['date_time']; ?></td>
                         <td><?php echo $val['gross_amount']; ?></td>
                         <td><?php echo $val['service_charge_rate']; ?></td>
                         <td><?php echo $val['service_charge']; ?></td>

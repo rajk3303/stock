@@ -15,7 +15,6 @@ class Model_export extends CI_Model
             `o.customer_name`,
             `o.customer_address`,
             `o.customer_phone`,
-            `o.date_time` ,
             `o.gross_amount` ,
             `o.service_charge_rate` ,
             `o.service_charge` ,
