@@ -47,13 +47,21 @@
         <thead>
             <tr>
                 <th class="header">id</th>
-                <th class="header">username</th>
-                <th class="header">password</th>   
-                <th class="header">email</th>
-                <th class="header">firstname</th>
-                <th class="header">lastname</th>
-                <th class="header">phone</th>
-                <th class="header">Gender</th>
+                <th class="header">bill_no</th>
+                <th class="header">customer_name</th>   
+                <th class="header">customer_address</th>
+                <th class="header">customer_phone</th>
+                <th class="header">date_time</th>
+                <th class="header">gross_amount</th>
+                <th class="header">SGST %</th>
+                <th class="header">SGST Charged</th>
+                <th class="header">CGST %</th>
+                <th class="header">CGST Charged</th>
+                <th class="header">net_amount</th>
+                <th class="header">discount</th>
+                <th class="header">paid_status</th>
+                <th class="header">user_id</th>
+
             </tr>
         </thead>
         
@@ -64,13 +72,21 @@
                     ?>
                     <tr>
                         <td><?php echo $val['id']; ?></td>   
-                        <td><?php  echo $val['username']; ?></td> 
-                        <td><?php echo $val['password']; ?></td>
-                        <td><?php echo $val['email']; ?></td>                       
-                        <td><?php echo $val['firstname']; ?></td>
-                        <td><?php echo $val['lastname']; ?></td>
-                        <td><?php echo $val['phone']; ?></td>
-                        <td><?php echo $val['gender']; ?></td>
+                        <td><?php echo $val['bill_no']; ?></td> 
+                        <td><?php echo $val['customer_name']; ?></td>
+                        <td><?php echo $val['customer_address']; ?></td>                       
+                        <td><?php echo $val['customer_phone']; ?></td>
+                        <td><?php echo $val['date_time']; ?></td>
+                        <td><?php echo $val['gross_amount']; ?></td>
+                        <td><?php echo $val['service_charge_rate']; ?></td>
+                        <td><?php echo $val['service_charge']; ?></td>
+                        <td><?php echo $val['vat_charge_rate']; ?></td>
+                        <td><?php echo $val['vat_charge']; ?></td>
+                        <td><?php echo $val['net_amount']; ?></td>
+                        <td><?php echo $val['discount']; ?></td>
+                        <td><?php echo $val['paid_status']; ?></td>
+                        <td><?php echo $val['user_id']; ?></td>
+
                     </tr>
                     <?php
                 }

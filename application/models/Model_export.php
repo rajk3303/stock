@@ -6,10 +6,28 @@ if (!defined('BASEPATH'))
 class Model_export extends CI_Model
 {
     // get mobiles list
-    public function mobileList()
+    public function orderlist()
     {
-        $this->db->select(array('m.id', 'm.username', 'm.password', 'm.email', 'm.firstname', 'm.lastname', 'm.phone', 'm.gender'));
-        $this->db->from('users as m');
+        $this->db->select(array
+        (
+            `o.id`,
+            `o.bill_no`,
+            `o.customer_name`,
+            `o.customer_address`,
+            `o.customer_phone`,
+            `o.date_time` ,
+            `o.gross_amount` ,
+            `o.service_charge_rate` ,
+            `o.service_charge` ,
+            `o.vat_charge_rate` ,
+            `o.vat_charge` ,
+            `o.net_amount` ,
+            `o.discount` ,
+            `o.paid_status`,
+            `o.user_id`
+         )
+        );
+        $this->db->from('orders as o');
         $query = $this->db->get();
         return $query->result_array();
     }
