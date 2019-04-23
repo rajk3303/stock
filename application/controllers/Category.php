@@ -93,7 +93,7 @@ class Category extends Admin_Controller
 
 		$response = array();
 
-		$this->form_validation->set_rules('category_name', 'Category name', 'trim|required');
+		$this->form_validation->set_rules('category_name', 'Category name', 'trim|required|is_unique[categories.name]');
 		$this->form_validation->set_rules('active', 'Active', 'trim|required');
 
 		$this->form_validation->set_error_delimiters('<p class="text-danger">','</p>');

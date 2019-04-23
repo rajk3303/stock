@@ -88,7 +88,7 @@ class Stores extends Admin_Controller
 
 		$response = array();
 
-		$this->form_validation->set_rules('store_name', 'Store name', 'trim|required');
+		$this->form_validation->set_rules('store_name', 'Store name', 'trim|required|is_unique[stores.name]');
 		$this->form_validation->set_rules('active', 'Active', 'trim|required');
 
 		$this->form_validation->set_error_delimiters('<p class="text-danger">','</p>');

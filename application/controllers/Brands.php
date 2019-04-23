@@ -96,7 +96,7 @@ class Brands extends Admin_Controller
 
 		$response = array();
 
-		$this->form_validation->set_rules('brand_name', 'Brand name', 'trim|required');
+		$this->form_validation->set_rules('brand_name', 'Brand name', 'trim|required|is_unique[brands.name]');
 		$this->form_validation->set_rules('active', 'Active', 'trim|required');
 
 		$this->form_validation->set_error_delimiters('<p class="text-danger">','</p>');

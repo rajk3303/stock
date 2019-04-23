@@ -118,8 +118,8 @@ class Users extends Admin_Controller
 
 		if($id) {
 			$this->form_validation->set_rules('groups', 'Group', 'required');
-			$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]|is_unique[users.username]');
-			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
+			$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]');
+			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|');
 			$this->form_validation->set_rules('fname', 'First name', 'trim|required|alpha');
 			$this->form_validation->set_rules('phone', 'Phone', 'trim|required|is_natural|max_length[10]|min_length[10]|regex_match[/^[0-9]{10}$/]');
 
