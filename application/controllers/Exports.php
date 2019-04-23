@@ -1,40 +1,53 @@
 <?php
-/**
- * Description of Export Controller
- *
- * @author TechArise Team
- *
- * @email  info@techarise.com
- */
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+
+defined('BASEPATH') OR exit('No direct script access allowed');
  
-class Exports extends CI_Controller {
+class Exports extends Admin_Controller{
 	// construct
     public function __construct() {
         parent::__construct();
-		// load model
-        $this->load->model('Export', 'export');
+        $this->not_logged_in();
+
+		$this->data['page_title'] = 'Exports';
+
+        $this->load->model('model_export');
+        // $this->load->model('model_users');
+
     }    
+
 	 // export xlsx|xls file
     public function index() {
         $data['page'] = 'export-excel';
-        $data['title'] = 'Export Excel data | TechArise';
-        $data['mobiledata'] = $this->export->mobileList();
-		// load view file for output
-        // $this->load->view('header');
-        // $this->load->view('footer');
-        $this->load->view('exports_view', $data);
+        
+        $data['mobiledata'] = $this->model_export->mobileList();
+        // load view file for output
+        if(in_array('exports', $this->permission)) {
+            redirect('dashboard', 'refresh');
+        }
+        $this->load->view('templates/header');
+        $this->load->view('templates/header_menu');
+        
+        // $this->load->view('templates/side_menubar');
+        
+        $this->load->view('exports/index.php', $data);
+        $this->load->view('templates/footer');
+        
+        // $this->render_template('exports/index.php', $this->data);
+
+
+
     }
 	// create xlsx
     public function createXLS() {
 		// create file name
-        $fileName = 'mobile-'.time().'.xlsx';  
+        $fileName = 'Simplentory-'.time().'.xlsx';  
 		// load excel library
         $this->load->library('excel');
-        $mobiledata = $this->export->mobileList();
+        $mobiledata = $this->model_export->mobileList();
         $objPHPExcel = new PHPExcel();
         $objPHPExcel->setActiveSheetIndex(0);
+        
+        
         // set Header
         $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'Model No.');
         $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'Mobile Name');

@@ -115,11 +115,11 @@
           <?php endif; ?>
 
           <!-- <?php ?> -->
-            <li id="customers">
+           <!--  <li id="customers">
               <a href="<?php echo base_url('customers/') ?>">
                 <i class="fa fa-files-o"></i> <span>Customers</span>
               </a>
-            </li>
+            </li> -->
           <!-- <?php ?> -->
 
           <?php if(in_array('createOrder', $user_permission) || in_array('updateOrder', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
@@ -149,6 +149,14 @@
               </a>
             </li>
           <?php endif; ?>
+      
+          
+            <li id="exportNav">
+              <a href="<?php echo base_url('exports/') ?>">
+                <i class="glyphicon glyphicon-stats"></i> <span>Export To Excel</span>
+              </a>
+            </li>
+          
 
 
           <?php if(in_array('updateCompany', $user_permission)): ?>
